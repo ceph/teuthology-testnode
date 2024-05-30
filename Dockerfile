@@ -13,9 +13,9 @@ RUN mkdir -p /root/.local/share/containers /home/podman/.local/share/containers
 VOLUME /var/lib/containers
 VOLUME /home/podman/.local/share/containers
 VOLUME /root/.local/share/containers
-ADD https://raw.githubusercontent.com/containers/libpod/master/contrib/podmanimage/stable/containers.conf /etc/containers/containers.conf
-ADD https://raw.githubusercontent.com/containers/libpod/master/contrib/podmanimage/stable/podman-containers.conf /home/podman/.config/containers/containers.conf
-ADD https://raw.githubusercontent.com/containers/podman/main/contrib/podmanimage/stable/podman-containers.conf /root/.config/containers/containers.conf
+ADD https://raw.githubusercontent.com/containers/image_build/main/podman/containers.conf /etc/containers/containers.conf
+ADD https://raw.githubusercontent.com/containers/image_build/main/podman/podman-containers.conf /home/podman/.config/containers/containers.conf
+ADD https://raw.githubusercontent.com/containers/image_build/main/podman/podman-containers.conf /root/.config/containers/containers.conf
 RUN chown podman:podman -R /home/podman; \
     echo 'podman:podman' | chpasswd
 RUN chmod 644 /etc/containers/containers.conf; \
