@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 set -x
+# HACK: Do not stop when requested (for debugging)
+exit 0
 hostname=$(hostname)
 payload="{\"name\": \"$hostname\", \"machine_type\": \"testnode\", \"up\": false}"
 for i in $(seq 1 5); do
