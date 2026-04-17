@@ -58,10 +58,11 @@ COPY run-fs.service scratch-devs.service /etc/systemd/system/
 RUN systemctl enable run-fs scratch-devs
 RUN \
     ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' && \
-    sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    mkdir -p /root/.ssh && \
-    chmod 700 /root/.ssh && \
     groupadd sudo && \
+    useradd -g sudo cm && \
+    mkdir -p /home/cm/.ssh && \
+    chmod 700 /home/cm/.ssh && \
+    chown -R cm /home/cm && \
     useradd -g sudo ubuntu && \
     mkdir -p /home/ubuntu/.ssh && \
     chmod 700 /home/ubuntu/.ssh && \

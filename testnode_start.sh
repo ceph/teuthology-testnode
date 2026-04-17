@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 set -x
-cat /run/secrets/id_rsa.pub >> /root/.ssh/authorized_keys
+cat /run/secrets/id_rsa.pub >> /home/cm/.ssh/authorized_keys
+chown cm /home/cm/.ssh/authorized_keys
 cat /run/secrets/id_rsa.pub >> /home/ubuntu/.ssh/authorized_keys
 chown ubuntu /home/ubuntu/.ssh/authorized_keys
 . /etc/os-release
